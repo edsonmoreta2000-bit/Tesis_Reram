@@ -1,0 +1,115 @@
+Material = "TiN" {
+Bandgap {
+WorkFunction = 4.4 # [eV]
+FermiEnergy = 6.0 # [eV]
+}
+FilamentParameter {
+SigmaDef1 = 1e4
+Sigma = 1e4
+KappaDef1 = 0.2
+Kappa = 0.2
+}
+}
+Material = "Titanium" {
+Bandgap {
+WorkFunction = 4.4 # [eV]
+FermiEnergy = 6.0 # [eV]
+}
+FilamentParameter {
+SigmaDef1 = 1e3
+Sigma = 1e3
+KappaDef1 = 0.1
+Kappa = 0.2
+ParticlesPerVolume1 = 5e22
+}
+}
+Material = "HfOx" {
+FilamentParameter {
+SigmaDef1 = 1
+Sigma = 1e-11
+KappaDef1 = 0.1
+Kappa = 0.1
+ParticlesPerVolume1 = 1.5e22
+ParticlesPerVolume2 = 1.5e22
+FilamentsPerVolume1 = 1.5e22
+}
+KMC_MIM_Transport {
+metun = 0.2 # [m0]
+medos = 0.2 # [m0]
+mcb = 1.16 # [m0]
+mvb = 2.5 # [m0]
+HuangRhys = 17.0 # [1]
+PhononEnergy = 0.070 # [eV]
+OpticalPermittivity = 5.6 # [1]
+PhononFrequency = 1e13 # [s^-1]
+tau0 = 1e-10 # [s]
+nu_max = 1e14 # [s^-1]
+EA = 3.00 # [eV]
+p0 = 5.2 # [eA]
+}
+Epsilon {
+epsilon = 21.0 # [1]
+}
+Bandgap {
+Chi0 = 2.4 # [eV]
+Eg0 = 5.8 # [eV]
+alpha = 0.0000e+00 # [eV K^-1]
+beta = 0.0000e+00 # [K]
+alpha2 = 0.0000e+00 # [eV K^-1]
+beta2 = 0.0000e+00 # [K]
+EgMin = -1.0000e+01 # [eV]
+dEgMin = 0.0000e+00 # [eV]
+Tpar = 0.0000e+00 # [K]
+}
+}
+Material = "TiOx" {
+FilamentParameter {
+SigmaDef1 = 0.01
+Sigma = 0.01
+KappaDef1 = 0.1
+Kappa = 0.1
+ParticlesPerVolume1 = 5e22
+}
+Bandgap {
+WorkFunction = 4.7 # [eV]
+FermiEnergy = 11.7 # [eV]
+}
+}
+Material = "HfO2" {
+FilamentParameter {
+SigmaDef1 = 0.01
+Sigma = 1e-11
+KappaDef1 = 0.1
+Kappa = 0.1
+ParticlesPerVolume2 = 1.5e22
+FilamentsPerVolume1 = 1.5e22
+}
+KMC_MIM_Transport {
+metun = 0.2 # [m0]
+medos = 0.2 # [m0]
+mcb = 1.16 # [m0]
+mvb = 2.5 # [m0]
+HuangRhys = 17.0 # [1]
+PhononEnergy = 0.070 # [eV]
+OpticalPermittivity = 5.6 # [1]
+PhononFrequency = 1e13 # [s^-1]
+tau0 = 1e-10 # [s]
+nu_max = 1e14 # [s^-1]
+EA = 3.00 # [eV]
+p0 = 5.2 # [eA]
+}
+Epsilon {
+epsilon = 21.0 # [1]
+}
+Bandgap {
+Chi0 = 2.4 # [eV]
+Eg0 = 5.8 # [eV]
+alpha = 0.0000e+00 # [eV K^-1]
+beta = 0.0000e+00 # [K]
+alpha2 = 0.0000e+00 # [eV K^-1]
+beta2 = 0.0000e+00 # [K]
+EgMin = -1.0000e+01 # [eV]
+dEgMin = 0.0000e+00 # [eV]
+Tpar = 0.0000e+00 # [K]
+}
+}

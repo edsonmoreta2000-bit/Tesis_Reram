@@ -1,0 +1,102 @@
+# tddb_zro2.cmd
+File {
+Grid = "zro2_8x16x16.tdr"
+Plot = "tddb_zro2"
+Current = "tddb_zro2"
+Output = "tddb_zro2"
+MIMCurrent = "tddb_zro2"
+MIMBand = "tddb_zro2"
+Param = "tddb.par"
+}
+Plot {
+VertexIndex
+ConductionBandEnergy
+ValenceBandEnergy
+InsulatorElectricField
+LatticeTemperature
+Potential
+MIMDefect1Conc
+MIMDefect2Conc
+MIMDefectConc
+MIMElectronConc
+MIMChargeConc
+MIMParticle
+}
+Electrode {
+{name="cathode" voltage=0.0 Material="TiN"}
+{name="anode" voltage=0.0 Material="TiN"}
+}
+Physics {
+Temperature=398
+Traps((TDDB))
+KMC_MIM_Transport (
+#IncludeMIMChargeInPoisson
+ConductivePathCurrent
+PrintCPCPaths
+DirectTunneling
+PooleFrenkelEmission
+TrapToTrapTunneling(MultiPhonon)
+InelasticElectrodeToTrapTunneling
+InelasticTrapToElectrodeTunneling
+InelasticIncludePZero
+InelasticIgnorePMinus
+)
+}
+Physics (Material = "ZrO2") {
+Traps (
+(KmcMim1 Conc=1e19 FillFrac=0.0 EtFill=1.1 EtEmpty=1.1
+TrapSigma=0 EmptyCharge=0 Xsection=1e-14 XsectionT2T=1e-14)
+)
+}
+Math {
+Extrapolate
+Transient=BE
+KMC (
+MinLocation = (0.000, 0.000, 0.000)
+MaxLocation = (0.100, 0.100, 0.100)
+CellLength = 0.0005
+Trap2ElecMinDist = 0.0003
+Trap2TrapMinDist = 0.0003
+RandomSeed=1
+ResetElectronFill
+UseAllCrossings
+#MoreFrequentRateResets
+IntegrationPoints = 128
+SkipKMCCurrentCheck = 0.10
+)
+}
+Solve {
+Coupled {Poisson}
+Quasistationary (
+InitialStep=0.1 MinStep=1e-3 MaxStep=0.5
+Goal {Name="anode" Voltage=4.2}
+) { Coupled {Poisson} }
+NewCurrentFile="tddb_zro2_4.2_"
+Transient (
+InitialTime=0 FinalTime=2000 Increment=1.2 InitialStep=1e-12
+MaxStep=1e30
+) { Coupled {Poisson Contact }
+Plot ( FilePrefix="tddb_zro2_4.2" Time=(range = (1 1000))
+NoOverwrite )
+}
+NewCurrentFile="tmp_"
+Quasistationary (
+InitialStep=0.1 MinStep=1e-3 MaxStep=0.5
+Goal {Name="anode" Voltage=4.4}
+) { Coupled {Poisson} }
+NewCurrentFile="tddb_zro2_4.4_"
+Transient (
+InitialTime=0 FinalTime=200 Increment=1.2 InitialStep=1e-12
+MaxStep=1e30
+) { Coupled {Poisson Contact} }
+NewCurrentFile="tmp_"
+Quasistationary (
+InitialStep=0.1 MinStep=1e-3 MaxStep=0.5
+Goal {Name="anode" Voltage=4.6}
+) { Coupled {Poisson} }
+NewCurrentFile="tddb_zro2_4.6_"
+Transient (
+InitialTime=0 FinalTime=20 Increment=1.2 InitialStep=1e-12
+MaxStep=1e30
+) { Coupled {Poisson Contact} }
+}

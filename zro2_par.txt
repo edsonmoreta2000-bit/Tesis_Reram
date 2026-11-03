@@ -1,0 +1,37 @@
+# tddb.par
+Material = "TiN" {
+Bandgap {
+WorkFunction = 4.4 # [eV]
+FermiEnergy = 6.0 # [eV]
+}
+KMC_MIM_Transport {
+metun = 1.00 # [m0]
+medos = 1.00 # [m0]
+}
+}
+Material = "ZrO2" {
+KMC_MIM_Transport {
+metun = 0.5 # [m0]
+medos = 0.5 # [m0]
+mcb = 1.16 # [m0]
+mvb = 2.5 # [m0]
+HuangRhys = 23 # [1]
+PhononEnergy = 0.040 # [eV]
+OpticalPermittivity = 5.6 # [1]
+PhononFrequency = 1e13 # [s^-1]
+alpha = 1 # [1]
+tau0 = 1.e-10 # [s]
+nu_max = 1.5e13 # [s^-1]
+EA = 3.0 # [eV]
+p0 = 2.05 # [eA]
+SitesPerVolume = 5.55e22 # [cm^-3]
+}
+Epsilon {
+epsilon = 40.0 # [1]
+}
+Bandgap {
+Chi0 = 2.5 # [eV] CBO = 4.4 - 2.5 = 1.9
+Eg0 = 5.4 # [eV]
+Alpha = 0.0 # [eV K^-1], no temperature dependence
+}
+}
