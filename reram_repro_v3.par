@@ -1,0 +1,77 @@
+# =====================================================================
+# ReRAM HfO2 - parametros V3 reproducibles
+# =====================================================================
+
+Material = "TiN" {
+  Bandgap {
+    WorkFunction = 4.4
+    FermiEnergy  = 6.0
+  }
+
+  FilamentParameter {
+    SigmaDef1 = 1e18
+    Sigma     = 1e5
+    KappaDef1 = 0.2
+    Kappa     = 0.2
+  }
+}
+
+Material = "Hafnium" {
+  Bandgap {
+    WorkFunction = 4.7
+    FermiEnergy  = 11.7
+  }
+
+  FilamentParameter {
+    SigmaDef1 = 1e18
+    Sigma     = 1e5
+    KappaDef1 = 0.2
+    Kappa     = 0.2
+    ParticlesPerVolume1 = 1.0e24
+    ParticlesPerVolume2 = 1.0e24
+    FilamentsPerVolume1 = 1.0e24
+  }
+}
+
+Material = "HfO2" {
+  FilamentParameter {
+    SigmaDef1 = 10
+    Sigma     = 2.5e-2
+    KappaDef1 = 0.1
+    Kappa     = 0.1
+    ParticlesPerVolume1 = 1.0e24
+    ParticlesPerVolume2 = 1.0e24
+    FilamentsPerVolume1 = 1.0e24
+  }
+
+  KMC_MIM_Transport {
+    metun              = 0.2
+    medos              = 0.2
+    mcb                = 1.16
+    mvb                = 2.5
+    HuangRhys          = 17.0
+    PhononEnergy       = 0.070
+    OpticalPermittivity = 5.6
+    PhononFrequency    = 1e13
+    tau0               = 1e-10
+    nu_max             = 1e14
+    EA                 = 0.20
+    p0                 = 5.2
+  }
+
+  Epsilon {
+    epsilon = 21.0
+  }
+
+  Bandgap {
+    Chi0   = 2.4
+    Eg0    = 5.8
+    alpha  = 0.0
+    beta   = 0.0
+    alpha2 = 0.0
+    beta2  = 0.0
+    EgMin  = -10.0
+    dEgMin = 0.0
+    Tpar   = 0.0
+  }
+}

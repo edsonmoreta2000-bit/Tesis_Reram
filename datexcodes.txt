@@ -1,0 +1,7 @@
+Materials {
+    Hafnium {
+        label = "Hf"
+        group = Conductor
+        color = #b0b0b0
+    }
+}
